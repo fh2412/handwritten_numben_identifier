@@ -1,7 +1,13 @@
+from fastai.vision.all import *
 import gradio as gr
 
-def greet(name):
-    return "Hello " + name + "!!"
+learn = load_learner('model.pkl')
 
-iface = gr.Interface(fn=greet, inputs="text", outputs="text")
-iface.launch()
+def predict(img):
+    pred,idx,probs = learn.predict(img)
+    return dict(zip(categories, map(float,probs)))
+
+gr.Interface(fn=predict,
+             inputs="sketchpad",
+             outputs="label",
+             live=True).launch()
