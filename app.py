@@ -7,6 +7,8 @@ def predict(img):
     pred,idx,probs = learn.predict(img)
     return dict(zip(categories, map(float,probs)))
 
+label = gr.outputs.Lable()
+
 gr.Interface(fn=predict,
              inputs="sketchpad",
              outputs="label",
