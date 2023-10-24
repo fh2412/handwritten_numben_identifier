@@ -9,7 +9,7 @@ def predict(img):
     print(f"type: {img}")
     testimg = PILImage.create(img)
     print(f"type: {testimg}")
-    pred, idx, probs = learn.predict(img)
+    pred, idx, probs = learn.predict(img[0])
     pred, idx, probs = learn.predict(testimg[0])
     print(f"pred: {pred}")
     print(f"idx: {idx}")
