@@ -2,4 +2,3 @@ fastai
 torch
 gradio
 numpy
-PILImage
