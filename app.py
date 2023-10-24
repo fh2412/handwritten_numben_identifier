@@ -7,7 +7,6 @@ LABELS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 def predict(img):
     print(f"type: {img}")
-    display(img)
     testimg = PILImage.create(img)
     print(f"type: {testimg}")
     pred, idx, probs = learn.predict(testimg[0])
