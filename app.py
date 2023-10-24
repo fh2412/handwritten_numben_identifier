@@ -7,10 +7,10 @@ LABELS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 def predict(img):
     print(f"type: {img}")
-    testimg = PILImage.create(img)
-    print(f"type: {testimg}")
+    #testimg = PILImage.create(img)
+    #print(f"type: {testimg}")
     pred, idx, probs = learn.predict(img[0])
-    pred, idx, probs = learn.predict(testimg[0])
+    #pred, idx, probs = learn.predict(testimg[0])
     print(f"pred: {pred}")
     print(f"idx: {idx}")
     print(f"probs: {probs}")
@@ -20,7 +20,7 @@ def predict(img):
 
 label = gr.outputs.Label()
 
-sp = gr.Sketchpad(shape=(28, 28),  image_mode="L", type="pil")
+sp = gr.Sketchpad(shape=(28, 28),  image_mode="L")
 
 gr.Interface(fn=predict,
              inputs=sp,
