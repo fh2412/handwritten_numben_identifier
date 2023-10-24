@@ -11,10 +11,9 @@ def predict(img):
     #print(f"type: {testimg}")
     pred, idx, probs = learn.predict(img[0])
     #pred, idx, probs = learn.predict(testimg[0])
-    print(f"pred: {pred}")
-    print(f"idx: {idx}")
-    print(f"probs: {probs}")
-    confidences = {LABELS[i]: v.item() for i, v in zip(pred, probs)}
+    print(f"pred: {learn.predict(img[0])}")
+
+    #confidences = {LABELS[i]: v.item() for i, v in zip(pred, probs)}
     return dict(zip(LABELS, map(float,probs)))
 
 
