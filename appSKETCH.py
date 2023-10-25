@@ -1,19 +1,29 @@
 from fastai.vision.all import *
 import gradio as gr
-
-def is_cat(x): return x[0].isupper()
+from fastai.vision.all import PILImage
 
 learn = load_learner('model.pkl')
+LABELS = ['0']
 
-categories = ('Dog', 'Cat')
+def predict(img):
+    print(f"type: {img}")
+    testimg = PILImage.create(img)
+    print(f"type: {testimg}")
+    print(testimg.shape)
+    print(learn.predict(testimg))
+    #pred, idx, probs = learn.predict(img[0])
+    pred, idx, probs = learn.predict(testimg)
+    print(f"Prediction: {pred}; Probability: {probs[idx]:.04f}")
 
-def classify_image(img):
-    pred,idx,probs = learn.predict(img)
-    return dict(zip(categories, map(float,probs)))
+    #confidences = {LABELS[i]: v.item() for i, v in zip(pred, probs)}
+    return dict(zip(LABELS, map(float,probs)))
 
-image = gr.components.Image(shape=(192, 192))
-label = gr.components.Label()
-examples = ['dog.jpg', 'cat.jpg']
 
-intf = gr.Interface(fn=classify_image, inputs=image, outputs=label, examples=examples)
-intf.launch(inline=False)
+label = gr.outputs.Label()
+
+sp = gr.Sketchpad(shape=(28, 28),  image_mode="L")
+
+gr.Interface(fn=predict,
+             inputs=sp,
+             outputs="label",
+        ).queue().launch(share=True)
