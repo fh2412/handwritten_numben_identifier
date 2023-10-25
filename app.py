@@ -5,7 +5,7 @@ def is_cat(x): return x[0].isupper()
 
 learn = load_learner('model.pkl')
 
-categories = ('0', '1')
+categories = ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
 
 def classify_image(img):
     pred,idx,probs = learn.predict(img)
