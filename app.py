@@ -10,9 +10,10 @@ def predict(img):
     print(f"type: {img[1:-1, 1:-1]}")
     testimg = PILImage.create(img)
     print(f"type: {testimg}")
+    print(len(testimg))
     print(testimg.shape)
     #pred, idx, probs = learn.predict(img[0])
-    pred, idx, probs = learn.predict(PILImage.create(img))
+    pred, idx, probs = learn.predict(testimg)
     print(f"Prediction: {pred}; Probability: {probs[idx]:.04f}")
 
     #confidences = {LABELS[i]: v.item() for i, v in zip(pred, probs)}
