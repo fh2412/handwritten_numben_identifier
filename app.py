@@ -8,7 +8,7 @@ LABELS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 def predict(img):
     print(f"type: {img}")
     print(f"type: {img[1:-1, 1:-1]}")
-    testimg = PILImage.create(img)
+    testimg = PILImage.create(img[1:-1, 1:-1])
     print(f"type: {testimg}")
     print(testimg.shape)
     print(learn.predict(testimg))
