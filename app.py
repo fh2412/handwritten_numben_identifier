@@ -10,7 +10,7 @@ categories = ('0', '1')
 def classify_image(img):
     pred,idx,probs = learn.predict(img)
     print(f"Prediction: {pred}; Probability: {probs[0]:.4f}")
-    return dict(zip(categories, map(float,probs[0]:.4f)))
+    return dict(zip(categories, map(float,probs)))
 
 image = gr.components.Image(shape=(28, 28))
 label = gr.components.Label()
