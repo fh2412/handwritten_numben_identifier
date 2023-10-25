@@ -10,8 +10,8 @@ def predict(img):
     testimg = PILImage.create(img)
     print(f"type: {testimg}")
     #pred, idx, probs = learn.predict(img[0])
-    pred, idx, probs = learn.predict(testimg)
-    print(f"pred: {learn.predict(img[0])}")
+    pred, idx, probs = learn.predict(testimg[-1])
+    print(f"pred: {learn.predict(testimg[-1])}")
 
     #confidences = {LABELS[i]: v.item() for i, v in zip(pred, probs)}
     return dict(zip(LABELS, map(float,probs)))
