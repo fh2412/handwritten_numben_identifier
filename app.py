@@ -3,12 +3,11 @@ import gradio as gr
 from fastai.vision.all import PILImage
 
 learn = load_learner('model.pkl')
-LABELS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+LABELS = ['0']
 
 def predict(img):
     print(f"type: {img}")
-    print(f"type: {img[1:-1, 1:-1]}")
-    testimg = PILImage.create(img[1:-1, 1:-1])
+    testimg = PILImage.create(img)
     print(f"type: {testimg}")
     print(testimg.shape)
     print(learn.predict(testimg))
