@@ -19,7 +19,7 @@ def predict(img):
     imgtens = get_img(img)
     print(f"type: {imgtens}")
     pred, idx, probs = learn.predict(imgtens)
-    print(f"predi: {learn.predict(imgtens)}")
+    print(f"pred: {learn.predict(imgtens)}")
 
     #confidences = {LABELS[i]: v.item() for i, v in zip(pred, probs)}
     return dict(zip(LABELS, map(float,probs)))
