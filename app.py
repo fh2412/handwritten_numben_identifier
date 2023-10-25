@@ -27,7 +27,7 @@ def predict(img):
 
 label = gr.outputs.Label()
 
-sp = gr.Sketchpad(shape=(28, 28),  image_mode="L", type="pil")
+sp = gr.Sketchpad(shape=(28, 28),  image_mode="L")
 
 gr.Interface(fn=predict,
              inputs=sp,
