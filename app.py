@@ -13,7 +13,7 @@ def classify_image(img):
 
 image = gr.components.Image(shape=(192, 192))
 label = gr.components.Label()
-examples = ['zero.jpg', 'one.jpg']
+examples = ['zero.png', 'one.png']
 
 intf = gr.Interface(fn=classify_image, inputs=image, outputs=label, examples=examples)
 intf.launch(inline=False)
